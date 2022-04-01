@@ -7,7 +7,11 @@ function nFactorial(n) {
   // devolvé el factorial de n (n!)
   // ej:
   // el factorial de 3 es 6 (3 * 2 * 1)
+
+  if (  n===1 || n === 0 ) return 1;
+  return n*nFactorial (n-1);
 }
+       
 
 function nFibonacci(n) {
   // Secuencia de Fibonacci: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144,…
@@ -16,17 +20,47 @@ function nFibonacci(n) {
   // nFibonacci(1) // 1 // el elemento 1 es 1
   // nFibonacci(6) // 1 // el elemento 6 es 8
 
+  if (n === 0) {
+    return 0
+  } else if (n===1) {
+    return 1
+  } else if (n>1) {
+  return nFibonacci(n-1) + nFibonacci(n-2);
+  }
 }
+//32:40 explicacion
 
 // Para esta parte no es necesario utilizar recursión.
 // Implementa la clase Queue que debe contener los siguientes métodos:
 // enqueue: Agrega un valor a la queue. Respeta el orden existente.
-// dequeue: Remueve un valor de la queue. Obedece a FIFO y respeta el underflow (devuelve undefined cuando la queue tiene size cero, o sea, cuando no tiene ningún elemento).
+// dequeue: Remueve un valor de la queue. Obedece  a FIFO y respeta el underflow (devuelve undefined cuando la queue tiene size cero, o sea, cuando no tiene ningún elemento).
 // size: Devuelve el número de elementos que contiene la queue.
 
-function Queue() {
+// array = [];
 
+/* function Queue() {
+  this.array = [];
 }
+*/
+
+class Queue { 
+    constructor(enqueue, dequeue, size) {      // Queue es el constructor de mi clase, la primer letra en mayuscula
+       this.array = [];
+    }
+}
+Queue.prototype.size = function() {
+  return this.array.length
+}
+Queue.prototype.enqueue = function (elemento){
+  this.array.push(elemento)
+};
+Queue.prototype.dequeue = function (){
+  return this.array.shift()
+};
+
+
+
+
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
