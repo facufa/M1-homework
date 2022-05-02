@@ -36,6 +36,7 @@ expect(tree.size()).toBe(3);
     expect(tree.right.value).toBe(22);
   });
 
+  
   it('ordena valores cuando agrega', function() {
     expect(tree.value).toBe(20);
     tree.insert(15);
